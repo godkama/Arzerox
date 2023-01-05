@@ -26,37 +26,66 @@ const client = new Client({
 });
 
 // Log into the client
-client.login(TOKEN)
 
 // Print messages when connected to client
 client.on('ready', () => {
-    console.log(`Logged into ${client.user.tag}\n${client.user.username}'s ID is ${client.user.id}\nChange options in ./settings.js\n${client.user.username} is now online.\n\nHistory\n-------`);
+    console.log(`Logged into ${client.user.tag}\n${client.user.username}'s ID is ${client.user.id}\nChange options in ./settings.js\n${client.user.username} is now online.\nSuccesfully reloaded`);
+    console.log("\nHistory\n-------")
 })
 
 // Logs messages
 client.on('messageCreate', (message) => {
-    console.log(message.createdAt.toDateString() + ", " + message.author.tag + " : " + message.content);
+    // console.log(message.createdAt.toDateString() + ", " + message.author.tag + " : " + message.content);
 });
 
 client.on('interactionCreate', (interaction) => {
-   if (interaction.isChatInputCommand)  {
+    if (interaction.isChatInputCommand()) {
         console.log('Logged ChatInputCommand')
-   }
+        interaction.reply({ content: `:white_check_mark: You successfully logged ${interaction.options.getString('input')}` })
+        console.log(interaction.user.tag + " says " + interaction.options.getString('input'));
+        interaction.channel.send(`<@${interaction.user.id}> just logged ` + "`" + `${interaction.options.getString('input')}` + "`" + ` in ${client.user.username}'s console`);
+        console.log(interaction.user.username + "'s favorite link is " + interaction.options.getString('link'))
+    }
 });
 
 async function main() {
 
     const commands = [{
-        name: "order",
-        description: "Order something...",
+        name: "log",
+        description: "Log something",
+        options: [{
+            name: "input",
+            description: "Log your input",
+            type: 3,
+            required: true,
+            choices: [
+                {
+                    name: "yoghurt",
+                    value: "I LOVE YAOURT",
+                },
+                {
+                    name: "Kama",
+                    value: "Kama is a God for developing this amazing bot",
+                }
+            ],
+        },
+        {
+            name: "link",
+            description: "Log your link",
+            type: 3,
+            required: false,
+        }
+
+        ],
     }];
 
     try {
+        console.clear();
         console.log('Started refreshing application (/) commands.');
-        console.log();
         await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
             body: commands
         });
+        console.clear();
         client.login(TOKEN)
     } catch (err) {
         console.log(err);
