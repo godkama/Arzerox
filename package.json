@@ -1,0 +1,30 @@
+{
+  "name": "arzerox",
+  "version": "1.0.0",
+  "description": "Arzerox by Kama",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LordKamaYT/Arzerox.git"
+  },
+  "keywords": [
+    "discord",
+    "v13",
+    "discord.js",
+    "djs"
+  ],
+  "author": "Kama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LordKamaYT/Arzerox/issues"
+  },
+  "homepage": "https://github.com/LordKamaYT/Arzerox#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "env": "^0.0.2"
+  }
+}
