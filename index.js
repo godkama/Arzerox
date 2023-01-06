@@ -31,6 +31,7 @@ const client = new Client({
 client.on('ready', () => {
     console.log(`Logged into ${client.user.tag}\n${client.user.username}'s ID is ${client.user.id}\nChange options in ./settings.js\n${client.user.username} is now online.\nSuccesfully reloaded`);
     console.log("\nHistory\n-------")
+    client.user.setActivity("Dev by Kama || /log")
 })
 
 // Logs messages
@@ -44,7 +45,7 @@ client.on('interactionCreate', (interaction) => {
         interaction.reply({ content: `:white_check_mark: You successfully logged ${interaction.options.getString('input')}` })
         console.log(interaction.user.tag + " says " + interaction.options.getString('input'));
         interaction.channel.send(`<@${interaction.user.id}> just logged ` + "`" + `${interaction.options.getString('input')}` + "`" + ` in ${client.user.username}'s console`);
-        console.log(interaction.user.username + "'s favorite link is " + interaction.options.getString('link'))
+        console.log(interaction.user.username + " : " + interaction.options.getString('link'))
     }
 });
 
@@ -70,8 +71,8 @@ async function main() {
             ],
         },
         {
-            name: "link",
-            description: "Log your link",
+            name: "msg",
+            description: "Log your message",
             type: 3,
             required: false,
         }
