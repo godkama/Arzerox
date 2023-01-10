@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README.MD</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="table-of-contents">Table of Contents</h1>
+<p>Arzerox<br>
+Setup with Git</p>
+<ul>
+<li><a href="#Setup-a-README-file">Setup a README file</a></li>
+<li><a href="Setup-a-Push-Origin">Setup a Push Origin</a></li>
+</ul>
+<p>Commit Your Code</p>
+<ul>
+<li><a href="Manual-Commit">Manual Commit</a></li>
+<li><a href="Automatic-Commit">Automatic Commit</a></li>
+</ul>
+<h1 id="arzerox">Arzerox</h1>
+<h1 id="setup-with-git">Setup with Git</h1>
+<h2 id="setup-a-readme-file">Setup a README file</h2>
+<p>In order to push to github, you need to setup an origin repo.</p>
+<p>Fistly, we’ll setup a README file. ( To create your README easier, you can go <a href="https://stackedit.io/app#">here</a> )This file will be used as a documentation for your bot. In order to do that open your command prompt and run</p>
+<pre><code>echo "# test" &gt;&gt; README.md
+</code></pre>
+<h2 id="setup-a-push-origin">Setup a Push Origin</h2>
+<p>Then, we’ll setup the push origin, which will permit us to add the edited code directly to GitHub using a simple command.*</p>
+<p>Open your command prompt and run</p>
+<pre><code>git init
+git add README.md
+git commit -m "First Commit"
+git branch -M main
+git remote add origin https://github.com/username/reponame.git
+</code></pre>
+<p>By doing this action, you just put an origin to push to.<br>
+You might need to login to your GitHub account in your command prompt. Just enter what the command prompt asks, and you will have the access to push.</p>
+<h1 id="commit-your-code">Commit Your Code</h1>
+<p>Once you’ve setup your push origin, you will want to push everytime you change something in your code. Using Arzerox’s code, you will have two options to push :</p>
+<h2 id="manual-commit">Manual Commit</h2>
+<p>To commit your manually, you can open one of these two :</p>
+<ul>
+<li>Git Bash</li>
+<li>Command Prompt</li>
+</ul>
+<p>Once you’ve opened one of them, run these three commands :</p>
+<pre><code>git add *
+git commit -m "Commit Name"
+git push origin main
+</code></pre>
+<h2 id="automatic-commit">Automatic Commit</h2>
+<p>You don’t necessarily have to run all the commands manually, you can use one of Arzerox’s automation files. To commit automatically, you will want to open one of the following :</p>
+<ul>
+<li>Git Bash</li>
+<li>Command Prompt</li>
+</ul>
+<p>Then, you will want to run <code>./commit.bat</code> in your console.</p>
+</div>
+</body>
+
+</html>
