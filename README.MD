@@ -11,6 +11,11 @@ Setup with Git
  - [Manual Commit](Manual-Commit)
  - [Automatic Commit](Automatic-Commit)
 
+ Releases
+
+ - [V.1.0.0 Alpha Pre-Release](https://github.com/LordKamaYT/Arzerox/releases/tag/Pre-Release)
+ - Soon
+
 # Arzerox
 
 
