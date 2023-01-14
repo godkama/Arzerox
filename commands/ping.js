@@ -5,11 +5,11 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Replies with Pong!'),
 	async execute(interaction, maintenance_mode) {
-		if (maintenance_mode = false){
+		if (maintenance_mode == false){
 			interaction.reply({ content: `${client.ws.ping}ms`, ephemeral: true });
 			wait (2000)
 			interaction.editReply('Arzerox Bot')
-		} else if (maintenance_mode = true){
+		} else if (maintenance_mode == true){
 			interaction.reply(":x: Maintenance Mode is on !")
 		}
 	},
