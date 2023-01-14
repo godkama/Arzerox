@@ -25,10 +25,12 @@
   "dependencies": {
     "@discordjs/builders": "^1.4.0",
     "@discordjs/rest": "^1.5.0",
+    "ascii-table": "^0.0.9",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "env": "^0.0.2",
     "fs": "^0.0.1-security",
+    "glob": "^8.0.3",
     "path": "^0.12.7"
   }
 }

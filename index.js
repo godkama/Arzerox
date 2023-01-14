@@ -1,49 +1,23 @@
-// Require the necessary discord.js classes
 const {
-    Client,
-    Events,
-    GatewayIntentBits,
-    Collection
-} = require('discord.js');
-dotenv = require('dotenv');
-dotenv.config();
-const fs = require('node:fs');
-const path = require('node:path');
+  Client,
+  ActivityType,
+  Partials,
+  GatewayIntentBits,
+  Collection,
+} = require("discord.js");
+const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
+const { User, Message, GuildMember, ThreadMember } = Partials;
 
-// Create a new client instance
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds]
+  intents: [Guilds, GuildMembers, GuildMessages],
+  partials: [User, Message, GuildMember, ThreadMember],
 });
 
-client.commands = new Collection;
-maintenance_mode = false;
+const { loadEvents } = require("./Handlers/eventHandler");
 
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+client.config = require("./config.json");
+client.events = new Collection();
 
-for (const file of commandFiles) {
-    const filePath = path.join(commandsPath, file);
-    const command = require(filePath);
-    // Set a new item in the Collection with the key as the command name and the value as the exported module
-    if ('data' in command && 'execute' in command) {
-        client.commands.set(command.data.name, command);
-    } else {
-        console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
-    }
-}
+loadEvents(client);
 
-const eventsPath = path.join(__dirname, 'events');
-const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
-
-for (const file of eventFiles) {
-    const filePath = path.join(eventsPath, file);
-    const event = require(filePath);
-    if (event.once) {
-        client.once(event.name, (...args) => event.execute(...args));
-    } else {
-        client.on(event.name, (...args) => event.execute(...args));
-    }
-}
-
-// Log in to Discord with your client's token
-client.login(process.env.TOKEN);
+client.login(client.config.TOKEN);
