@@ -9,7 +9,7 @@ module.exports = {
 			interaction.reply({ content: `${client.ws.ping}ms`, ephemeral: true });
 			wait (2000)
 			interaction.editReply('Arzerox Bot')
-		} else {
+		} else if (maintenance_mode = true){
 			interaction.reply(":x: Maintenance Mode is on !")
 		}
 	},
