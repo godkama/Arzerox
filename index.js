@@ -18,7 +18,7 @@ const client = new Client({
 client.commands = new Collection;
 maintenance_mode = false;
 
-const commandsPath = path.join(__dirname, 'commands', 'devguild', 'bloxia', 'common');
+const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
