@@ -17,6 +17,13 @@ const { loadEvents } = require("./Handlers/eventHandler");
 
 client.config = require("./config.json");
 client.events = new Collection();
+client.commands = new Collection();
+client.subCommands = new Collection();
+
+const { connect } = require("mongoose");
+connect(client.config.MONGODB_SRV, {}).then(() =>
+  console.log(`Client is connected to the DataBase.`)
+);
 
 loadEvents(client);
 
