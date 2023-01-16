@@ -84,5 +84,3 @@ Go to your `Settings` folder, and right click => Create a new file
 
 Name it `.env` . After that, your Settings folder should look like this :
 [Settings Folder](https://media.discordapp.net/attachments/1063751938371502100/1063752849835687956/image.png)
-
-test

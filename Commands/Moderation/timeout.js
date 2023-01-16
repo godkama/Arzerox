@@ -67,11 +67,52 @@ module.exports = {
         embeds: [errorsEmbed.setDescription(errorsArray.join("\n"))],
       });
 
-    target.timeout(ms(time), reason).catch((err) => {
-      interaction.reply({
-        embeds: [errorsEmbed.setDescription("An unexpected error happened.")],
+    let timeError = false;
+    await target.timeout(ms(time), reason).catch(() => (timeError = true));
+
+    if (timeError)
+      return interaction.reply({
+        embeds: [
+          errorsEmbed.setDescription(
+            "Could not timeout user due to an uncommon error. Cannot take negative values"
+          ),
+        ],
+        ephemeral: true,
       });
-      return console.log("Error in timeout.js", err);
-    });
+
+    const newInfractionsObject = {
+      IssuerID: member.id,
+      IssuerTag: member.user.tag,
+      Reason: reason,
+      Date: Date.now(),
+    };
+
+    let userData = await Database.findOne({ Guild: guild.id, User: target.id });
+    if (!userData)
+      userData = await Database.create({
+        Guild: guild.id,
+        User: target.id,
+        Infractions: [newInfractionsObject],
+      });
+    else
+      userData.Infractions.push(newInfractionsObject) &&
+        (await userData.save());
+
+    const successEmbed = new EmbedBuilder()
+      .setAuthor({
+        name: "Timeout Issued",
+        iconURL: guild.iconURL(),
+      })
+      .setColor("Gold")
+      .setDescription(
+        [
+          `${target} was issued a timeout for **${ms(ms(time), {
+            long: true,
+          })}** by ${member}`,
+          `Their total infractions is now : **${userData.Infractions.length}**`,
+          `Reason: ${reason}`,
+        ].join("\n")
+      );
+    return interaction.reply({ embeds: [successEmbed] });
   },
 };
