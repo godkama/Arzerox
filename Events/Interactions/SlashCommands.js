@@ -22,6 +22,12 @@ module.exports = {
         ephemeral: true,
       });
 
+    if (command.owneronly && interaction.user.id !== client.config.OWNERID)
+      return interaction.reply({
+        content: ":x: This command is only available to the owner.",
+        ephemeral: true,
+      });
+
     const subCommand = interaction.options.getSubcommand(false);
     if (subCommand) {
       const subCommandFile = client.subCommands.get(
