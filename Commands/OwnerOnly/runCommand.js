@@ -9,7 +9,7 @@ const {
 module.exports = {
   owneronly: true,
   data: new SlashCommandBuilder()
-    .setName("runCommand")
+    .setName("runcommand")
     .setDescription("Running console command.")
     .addStringOption((option) =>
       option.setName("input").setDescription("Command to run").setRequired(true)
