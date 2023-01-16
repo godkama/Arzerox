@@ -10,7 +10,7 @@ module.exports = {
    */
   execute(interaction, client) {
     for (const [key, value] of client.events) loadEvents(client);
-    client.removeListener(`${key}, value, true`);
+    client.removeListener(`key, value, true`);
     interaction.reply({
       content: "Developer Reloaded Events",
       ephemeral: false,
