@@ -16,7 +16,7 @@ module.exports = {
         ephemeral: true,
       });
 
-    if (command.developer && interaction.user.id !== client.config.DEVID)
+    if (command.developer && !client.config.DEVID.includes(interaction.user.id))
       return interaction.reply({
         content: ":x: This command is only available to developers.",
         ephemeral: true,

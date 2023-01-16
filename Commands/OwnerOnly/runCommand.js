@@ -8,6 +8,7 @@ const {
 
 module.exports = {
   owneronly: true,
+  developer: false,
   data: new SlashCommandBuilder()
     .setName("runcommand")
     .setDescription("Running console command.")
@@ -19,22 +20,22 @@ module.exports = {
    * @param {ChatInputCommandInteraction} interaction
    */
   execute(interaction, client) {
-    const input = interaction.option.getString("input");
+    const input = interaction.options.getString("input");
     const outputEmbed = new EmbedBuilder()
-      .setAuthor("Output :")
+      .setAuthor({ name: "Output :" })
       .setColor("Aqua");
 
-    exec(input, (err, output) => {
+    exec(input, async (err, output) => {
       // once the command has completed, the callback function is called
       if (err) {
         // log and return if we encounter an error
         console.error("could not execute command: ", err);
-        interaction.reply("couldn't execute command");
+        await interaction.reply("couldn't execute command");
         return;
       }
       // log the output received from the command
       console.log("Output: \n", output);
-      interaction.reply({ embeds: [outputEmbed.setDescription(output)] });
+      await interaction.reply({ embeds: [outputEmbed.setDescription(output)] });
     });
   },
 };
