@@ -1,14 +1,15 @@
 const { loadCommands } = require("../../Handlers/commandHandler");
+const User = require("../../Models/User");
 
 module.exports = {
   name: "ready",
   once: true,
-  execute(client, ActivityType) {
+  async execute(client, ActivityType) {
     client.user.setPresence({
       activities: [
         {
           name: `${client.guilds.cache.size} Guilds || Dev By Kama`,
-          type: ActivityType.Watching,
+          type: ActivityType.LISTENING,
         },
       ],
       status: "dnd",
@@ -17,5 +18,8 @@ module.exports = {
     console.log(
       `Logged into ${client.user.tag}\n${client.user.username}'s ID is ${client.user.id}\nChange options in ./config.json\n${client.user.username} is now online.\nSuccesfully reloaded`
     );
+    //premium
+    const users = await User.find();
+    users.forEach((user) => client.userSettings.set(user.Id, user));
   },
 };
