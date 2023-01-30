@@ -68,12 +68,12 @@ module.exports = {
       .setColor("DarkGreen")
       .setDescription(
         [
-          `- Logging Channel Updated : <#${logChannel}`,
+          `- Logging Channel Updated : <#${logChannel}>`,
           `- Member Auto-Role Updated : ${
-            memberRole ? `<@${memberRole}` : "Not Specified."
+            memberRole ? `<@${memberRole}>` : "Not Specified."
           }`,
           `- Bot Auto-Role Updated : ${
-            botRole ? `<@${botRole}` : "Not Specified."
+            botRole ? `<@${botRole}>` : "Not Specified."
           }`,
         ].join("\n")
       );
