@@ -18,8 +18,5 @@ module.exports = {
     console.log(
       `Logged into ${client.user.tag}\n${client.user.username}'s ID is ${client.user.id}\nChange options in ./config.json\n${client.user.username} is now online.\nSuccesfully reloaded`
     );
-    //premium
-    const users = await User.find();
-    users.forEach((user) => client.userSettings.set(user.Id, user));
   },
 };

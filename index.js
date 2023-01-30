@@ -19,7 +19,7 @@ client.config = require("./config.json");
 client.events = new Collection();
 client.commands = new Collection();
 client.subCommands = new Collection();
-client.userSettings = new Collection();
+client.guildConfig = new Collection();
 
 const { connect } = require("mongoose");
 connect(client.config.MONGODB_SRV, {}).then(() =>
