@@ -14,6 +14,7 @@ const client = new Client({
 });
 
 const { loadEvents } = require("./Handlers/eventHandler");
+const { loadConfig } = require("./Functions/configLoader");
 
 client.config = require("./config.json");
 client.events = new Collection();
@@ -27,5 +28,6 @@ connect(client.config.MONGODB_SRV, {}).then(() =>
 );
 
 loadEvents(client);
+loadConfig(client);
 
 client.login(client.config.TOKEN);

@@ -1,5 +1,4 @@
 const { loadCommands } = require("../../Handlers/commandHandler");
-const User = require("../../Models/User");
 
 module.exports = {
   name: "ready",
