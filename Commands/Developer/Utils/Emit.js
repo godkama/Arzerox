@@ -7,6 +7,7 @@ const {
 } = require("discord.js");
 
 module.exports = {
+  developer: true,
   data: new SlashCommandBuilder()
     .setName("emit")
     .setDescription("Emit the guildMemberAdd / Remove events")
@@ -18,8 +19,12 @@ module.exports = {
    * @param {Client} client
    */
   execute(interaction, client) {
+    client.emit("guildMemberRemove", interaction.member);
     client.emit("guildMemberAdd", interaction.member);
 
-    interaction.reply({ content: "Emitted GuidlMemberAdd", ephemeral: true });
+    interaction.reply({
+      content: "Emitted GuidlMemberAdd and GuildMemberRemove",
+      ephemeral: true,
+    });
   },
 };
