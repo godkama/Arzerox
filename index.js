@@ -35,3 +35,4 @@ loadEvents(client);
 loadConfig(client);
 
 client.login(client.config.TOKEN);
+client.login(client.config.BLOXIA_STATUS);
