@@ -24,6 +24,7 @@ client.commands = new Collection();
 client.subCommands = new Collection();
 client.guildConfig = new Collection();
 client.aliases = new Collection();
+client.userSettings = new Collection();
 
 const { connect } = require("mongoose");
 connect(client.config.MONGODB_SRV, {}).then(() =>

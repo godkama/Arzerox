@@ -20,7 +20,7 @@ const {
   PermissionFlagsBits,
 } = require("discord.js");
 const { PREFIX } = require("../../config.json");
-const premiumSchema = require("../../Models/premium");
+const User = require("../../Models/User");
 
 module.exports = {
   name: "messageCreate",
@@ -42,20 +42,27 @@ module.exports = {
     if (!commandName) return;
     if (!command) return;
 
-    if (
-      command.premium &&
-      !(await premiumSchema.findOne({ User: message.author.id }))
-    )
-      return message.reply({
-        content: ":x: You need to be a premium user to use this command !",
-        ephemeral: false,
-      });
-
     if (command.developer && !client.config.DEVID.includes(message.author.id))
       return message.reply({
         content: ":x: This command is only available to developers.",
         ephemeral: true,
       });
+
+    let user = client.userSettings.get(message.author.id);
+    // If there is no user, create it in the Database as "newUser"
+    if (!user) {
+      const findUser = await User.findOne({ Id: message.author.id });
+      if (!findUser) {
+        const newUser = await User.create({ Id: message.author.id });
+        client.userSettings.set(message.author.id, newUser);
+        user = newUser;
+      } else return;
+    }
+    if (command.premium && user && !user.isPremium) {
+      return message.reply({
+        content: `> \`${message.author.username}\` You are Not Premium User`,
+      });
+    }
 
     if (command.owneronly && message.author.id !== client.config.OWNERID)
       return message.reply({
@@ -63,6 +70,6 @@ module.exports = {
         ephemeral: true,
       });
 
-    command.execute(message, args, commandName, Client, Discord);
+    command.execute(message, args, commandName, client, Discord);
   },
 };
