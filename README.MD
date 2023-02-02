@@ -80,7 +80,36 @@ Then, you will want to run `./commit.bat` in your console.
 
 Go to your `Settings` folder, and right click => Create a new file
 
-[New File](https://media.discordapp.net/attachments/1063751938371502100/1063752093413941268/image.png)
+https://media.discordapp.net/attachments/1063751938371502100/1063752093413941268/image.png
 
 Name it `.env` . After that, your Settings folder should look like this :
-[Settings Folder](https://media.discordapp.net/attachments/1063751938371502100/1063752849835687956/image.png)
+https://media.discordapp.net/attachments/1063751938371502100/1063752849835687956/image.png
+
+# Commands
+
+## Create a text command
+
+You need to create a command as `./Commands/${folder}/commandname.js`
+Use this template :
+
+```const User = require("../../Models/User");
+const { Client, Message, EmbedBuilder } = require("discord.js");
+
+module.exports = {
+  name: "commandname",
+  description: `command description`,
+  developer: false,
+  premium: false,
+  owneronly: false,
+  bloxia: false,
+  /**
+   *
+   * @param {Message} message
+   * @param {*} args
+   * @param {Client} client
+   */
+  async execute(message, args, commandName, client, Discord) {
+    //Code
+  },
+};
+```
