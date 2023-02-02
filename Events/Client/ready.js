@@ -1,7 +1,5 @@
 const { loadCommands } = require("../../Handlers/commandHandler");
 const User = require("../../Models/User");
-const DBD = require("discord-dashboard");
-const Theme = require("dbd-soft-ui");
 
 module.exports = {
   name: "ready",
