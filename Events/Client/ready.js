@@ -1,19 +1,33 @@
 const { loadCommands } = require("../../Handlers/commandHandler");
 const User = require("../../Models/User");
+const DBD = require("discord-dashboard");
+const Theme = require("dbd-soft-ui");
 
 module.exports = {
   name: "ready",
   once: true,
   async execute(client, ActivityType) {
-    client.user.setPresence({
-      activities: [
-        {
-          name: `${client.guilds.cache.size} Guilds || Dev By Kama`,
-          type: ActivityType.LISTENING,
-        },
-      ],
-      status: "dnd",
-    });
+    if (client.maintenanced == true) {
+      client.user.setPresence({
+        activities: [
+          {
+            name: `Currently undergoing maintenance. || Dev By Kama`,
+            type: "LISTENING",
+          },
+        ],
+        status: "dnd",
+      });
+    } else {
+      client.user.setPresence({
+        activities: [
+          {
+            name: `${client.guilds.cache.size} Guilds || Dev By Kama`,
+            type: ActivityType.LISTENING,
+          },
+        ],
+        status: "online",
+      });
+    }
     //premium and shit
     const users = await User.find();
     users.forEach((user) => client.userSettings.set(user.Id, user));

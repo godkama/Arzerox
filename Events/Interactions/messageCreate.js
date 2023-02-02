@@ -42,6 +42,7 @@ module.exports = {
     if (!commandName) return;
     if (!command) return;
 
+    if (command.bloxia && message.guild.id !== client.config.BLOXIAID) return;
     if (command.developer && !client.config.DEVID.includes(message.author.id))
       return message.reply({
         content: ":x: This command is only available to developers.",
@@ -58,6 +59,8 @@ module.exports = {
         user = newUser;
       } else return;
     }
+    if (client.maintenanced)
+      return message.reply(":x: Maintenance mode is on !");
     if (command.premium && user && !user.isPremium) {
       return message.reply({
         content: `> \`${message.author.username}\` You are Not Premium User`,

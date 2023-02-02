@@ -25,6 +25,7 @@ client.subCommands = new Collection();
 client.guildConfig = new Collection();
 client.aliases = new Collection();
 client.userSettings = new Collection();
+client.maintenanced = false;
 
 const { connect } = require("mongoose");
 connect(client.config.MONGODB_SRV, {}).then(() =>
@@ -35,4 +36,3 @@ loadEvents(client);
 loadConfig(client);
 
 client.login(client.config.TOKEN);
-client.login(client.config.BLOXIA_STATUS);

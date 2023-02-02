@@ -15,6 +15,10 @@ module.exports = {
         content: "Command Outdated.",
         ephemeral: true,
       });
+    if (command.bloxia && message.guild.id !== client.config.BLOXIAID) return;
+
+    if (client.maintenanced)
+      return message.reply(":x: Maintenance mode is on !");
 
     if (command.developer && !client.config.DEVID.includes(interaction.user.id))
       return interaction.reply({

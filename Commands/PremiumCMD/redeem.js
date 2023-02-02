@@ -6,7 +6,6 @@ const { Client, Message, EmbedBuilder } = require("discord.js");
 module.exports = {
   name: "redeem",
   description: `redeem premium codes`,
-  developer: true,
 
   /**
    *
