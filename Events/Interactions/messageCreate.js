@@ -19,7 +19,7 @@ const {
   Collection,
   PermissionFlagsBits,
 } = require("discord.js");
-const { PREFIX } = require("../../config.json");
+const { PREFIX, BLOXIA_PREFIX } = require("../../config.json");
 const User = require("../../Models/User");
 
 module.exports = {
@@ -28,11 +28,11 @@ module.exports = {
    * @param {Client} client
    * @param {Message} message
    */
-  async execute(message, client, Discord) {
+  async execute(message, client, bloxiacrown, Discord) {
     if (!message.content.startsWith(PREFIX) || message.author.bot) {
       return;
     }
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/);
+    const args = message.content.slice(PREFIX.length).trim().split(/ + /);
     const commandName = args.shift().toLowerCase();
     const command =
       client.commands.get(commandName) ||
@@ -49,6 +49,10 @@ module.exports = {
         ephemeral: true,
       });
 
+    if (command.bloxia && message.content.startsWith(BLOXIA_PREFIX)) {
+      command.execute(message, args, commandName, bloxiacrown, Discord);
+    }
+
     let user = client.userSettings.get(message.author.id);
     // If there is no user, create it in the Database as "newUser"
     if (!user) {
@@ -59,7 +63,7 @@ module.exports = {
         user = newUser;
       } else return;
     }
-    if (client.maintenanced)
+    if (client.maintenanced && !command.maintenancebypass)
       return message.reply(":x: Maintenance mode is on !");
     if (command.premium && user && !user.isPremium) {
       return message.reply({

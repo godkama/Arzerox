@@ -6,7 +6,6 @@ async function loadEvents(client) {
   const table = new ascii().setHeading("Events", "Status");
 
   await client.events.clear();
-
   const Files = await loadFiles("Events");
 
   Files.forEach((file) => {
@@ -28,5 +27,31 @@ async function loadEvents(client) {
 
   return console.log(table.toString(), "\n✅ Loaded Events");
 }
+async function loadEvents(bloxiacrown) {
+  const { loadFiles } = require("../Functions/fileLoader");
+  const ascii = require("ascii-table");
+  const table = new ascii().setHeading("Events", "Status");
 
+  await bloxiacrown.events.clear();
+  const Files = await loadFiles("Events");
+
+  Files.forEach((file) => {
+    const event = require(file);
+
+    const execute = (...args) => event.execute(...args, bloxiacrown);
+    bloxiacrown.events.set(event.name, execute);
+
+    if (event.rest) {
+      if (event.once) bloxiacrown.rest.on(event.name, execute);
+      else bloxiacrown.rest.on(event.name, execute);
+    } else {
+      if (event.once) bloxiacrown.once(event.name, execute);
+      else bloxiacrown.on(event.name, execute);
+    }
+
+    table.addRow(event.name, "✅");
+  });
+
+  return console.log(table.toString(), "\n✅ Loaded Events");
+}
 module.exports = { loadEvents };

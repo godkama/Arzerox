@@ -6,7 +6,7 @@ module.exports = {
    *
    * @param {ChatInputCommandInteraction} interaction
    */
-  execute(interaction, client) {
+  execute(interaction, client, bloxiacrown) {
     if (!interaction.isChatInputCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
@@ -15,10 +15,12 @@ module.exports = {
         content: "Command Outdated.",
         ephemeral: true,
       });
+
+    const bloxiacommand = bloxiacrown.commands.get(interaction.commandName);
     if (command.bloxia && message.guild.id !== client.config.BLOXIAID) return;
 
-    if (client.maintenanced)
-      return message.reply(":x: Maintenance mode is on !");
+    if (client.maintenanced && !command.maintenancebypass)
+      return interaction.reply(":x: Maintenance mode is on !");
 
     if (command.developer && !client.config.DEVID.includes(interaction.user.id))
       return interaction.reply({
@@ -44,5 +46,6 @@ module.exports = {
         });
       subCommandFile.execute(interaction, client);
     } else command.execute(interaction, client);
+    bloxiacommand.execute(interaction, bloxiacrown);
   },
 };
