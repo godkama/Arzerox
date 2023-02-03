@@ -74,9 +74,9 @@ You don't necessarily have to run all the commands manually, you can use one of 
 
 Then, you will want to run `./commit.bat` in your console.
 
-##Configuration
+## Configuration
 
-###Create a .env File
+### Create a .env File
 
 Go to your `Settings` folder, and right click => Create a new file
 
