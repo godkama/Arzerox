@@ -80,10 +80,16 @@ Then, you will want to run `./commit.bat` in your console.
 
 Go to your `Settings` folder, and right click => Create a new file
 
-https://media.discordapp.net/attachments/1063751938371502100/1063752093413941268/image.png
+<p align="center">
+  <a href="https://bit.ly/arzerox_bot" target="blank"><img src="https://media.discordapp.net/attachments/1063751938371502100/1063752093413941268/image.png" alt="Djs" /></a>
+</p>
+
 
 Name it `.env` . After that, your Settings folder should look like this :
-https://media.discordapp.net/attachments/1063751938371502100/1063752849835687956/image.png
+<p align="center">
+  <a href="https://bit.ly/arzerox_bot" target="blank"><img src="https://media.discordapp.net/attachments/1063751938371502100/1063752849835687956/image.png" alt="Djs" /></a>
+</p>
+
 
 # Commands
 
