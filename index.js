@@ -36,21 +36,3 @@ loadEvents(client);
 loadConfig(client);
 
 client.login(client.config.TOKEN);
-
-const bloxiacrown = new Client({
-  intents: [Guilds, GuildMembers, GuildMessages, MessageContent],
-  partials: [User, Message, GuildMember, ThreadMember],
-});
-
-bloxiacrown.events = new Collection();
-bloxiacrown.commands = new Collection();
-bloxiacrown.subCommands = new Collection();
-bloxiacrown.guildConfig = new Collection();
-bloxiacrown.aliases = new Collection();
-bloxiacrown.userSettings = new Collection();
-bloxiacrown.maintenanced = false;
-
-loadEvents(bloxiacrown);
-loadConfig(bloxiacrown);
-
-client.login(client.config.BLOXIACROWN);

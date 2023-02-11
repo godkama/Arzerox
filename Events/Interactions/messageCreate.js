@@ -19,7 +19,7 @@ const {
   Collection,
   PermissionFlagsBits,
 } = require("discord.js");
-const { PREFIX, BLOXIA_PREFIX } = require("../../config.json");
+const { PREFIX } = require("../../config.json");
 const User = require("../../Models/User");
 
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
    * @param {Client} client
    * @param {Message} message
    */
-  async execute(message, client, bloxiacrown, Discord) {
+  async execute(message, client, Discord) {
     if (!message.content.startsWith(PREFIX) || message.author.bot) {
       return;
     }
@@ -48,11 +48,6 @@ module.exports = {
         content: ":x: This command is only available to developers.",
         ephemeral: true,
       });
-
-    if (command.bloxia && message.content.startsWith(BLOXIA_PREFIX)) {
-      command.execute(message, args, commandName, bloxiacrown, Discord);
-    }
-
     let user = client.userSettings.get(message.author.id);
     // If there is no user, create it in the Database as "newUser"
     if (!user) {
