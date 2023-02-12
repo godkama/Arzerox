@@ -1,4 +1,8 @@
-﻿# Table of Contents
+# Arzerox
+
+https://img.shields.io/github/stars/lordkamayt/arzerox?style=social
+
+# Table of Contents
 
 [Arzerox](#arzerox)
 
