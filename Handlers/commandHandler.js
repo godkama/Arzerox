@@ -4,7 +4,6 @@ async function loadCommands(client) {
   const table = new ascii().setHeading("Commands", "Status");
   const fs = require("fs");
 
-  await bloxiacrown.commands.clear();
   await client.commands.clear();
   await client.subCommands.clear();
 
@@ -20,7 +19,6 @@ async function loadCommands(client) {
       let pull =
         require(`../Commands/${dir}/${file}`) || require(`../Commands/${file}`);
       if (pull.name) {
-        bloxiacrown.commands.set(pull.name, pull);
         client.commands.set(pull.name, pull);
         table.addRow(file, "✅");
       } else {
@@ -49,7 +47,8 @@ async function loadCommands(client) {
   });
 
   client.application.commands.set(commandsArray);
-  bloxiacrown.application.commands.set(commandsArray);
 
   return console.log(table.toString(), "\n✅ Loaded Commands");
 }
+
+module.exports = { loadCommands };
