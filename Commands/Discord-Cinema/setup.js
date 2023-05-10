@@ -27,5 +27,13 @@ module.exports = {
           message.channel.send("Timeout");
         });
     });
+    event.save((error, event) => {
+      if (error) {
+        console.error(error);
+        message.reply("Error setting up the event.");
+      } else {
+        message.reply(`Event set up successfully with ID ${event._id}.`);
+      }
+    });
   },
 };
