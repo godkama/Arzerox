@@ -64,7 +64,7 @@ module.exports = {
         console.error(error);
         message.reply("Error setting up the event.");
       } else {
-        message.reply(`Event set up successfully with ID ${event._id}.`);
+        message.reply(`Event set up successfully with ID ${event_id}.`);
       }
     });
   },
