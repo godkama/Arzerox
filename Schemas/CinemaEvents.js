@@ -1,4 +1,7 @@
-const eventSchema = new mongoose.Schema({
+const { model, Schema } = require("mongoose");
+
+module.exports = {
+  const eventSchema = new Schema({
   eventType: String,
   economyType: String,
   PPID: String,
@@ -12,3 +15,4 @@ const eventSchema = new mongoose.Schema({
   channelType: String,
   customVideo: String,
 });
+}
