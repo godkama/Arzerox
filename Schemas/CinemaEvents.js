@@ -15,5 +15,6 @@ module.exports = model(
     eventDateTime: Date,
     channelType: String,
     customVideo: String,
+    fullLayout: String,
   })
 );
