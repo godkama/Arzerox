@@ -1,7 +1,8 @@
 const { model, Schema } = require("mongoose");
 
 module.exports = {
-  const eventSchema = new Schema({
+  "eventSchema",
+  new Schema({
   eventType: String,
   economyType: String,
   PPID: String,
