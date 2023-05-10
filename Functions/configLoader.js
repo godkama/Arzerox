@@ -11,5 +11,4 @@ async function loadConfig(client) {
 
   return console.log("Loaded Guild Configuration to the collection.");
 }
-
 module.exports = { loadConfig };

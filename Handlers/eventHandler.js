@@ -6,7 +6,6 @@ async function loadEvents(client) {
   const table = new ascii().setHeading("Events", "Status");
 
   await client.events.clear();
-
   const Files = await loadFiles("Events");
 
   Files.forEach((file) => {

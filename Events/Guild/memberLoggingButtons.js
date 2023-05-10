@@ -10,12 +10,11 @@ module.exports = {
     if (!interaction.isButton()) return;
 
     const splitArray = interaction.customId.split("-");
-    if (!splitArray[0] === "MemberLogging") return;
+    if (splitArray[0] !== "MemberLogging") return;
 
     const member = (await interaction.guild.members.fetch()).get(splitArray[2]);
     const Embed = new EmbedBuilder();
     const errorsArray = [];
-
     if (!interaction.member.permissions.has("KickMembers"))
       errorsArray.push("You don't have the right perms");
 

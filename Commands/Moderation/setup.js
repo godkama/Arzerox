@@ -9,8 +9,8 @@ const database = require("../../Schemas/MemberLog");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("setup_memberlog")
-    .setDescription("Configure member logging system")
+    .setName("setup")
+    .setDescription("Configure Arzerox")
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
     .setDMPermission(false)
     .addChannelOption((options) =>
@@ -25,6 +25,16 @@ module.exports = {
     )
     .addRoleOption((options) =>
       options.setName("bot_role").setDescription("set role for new bot")
+    )
+    .addStringOption((options) =>
+      options
+        .setName("ticket_group")
+        .setDescription("Select ticket system parent group")
+    )
+    .addChannelOption((option) =>
+      option
+        .setName("ticket_handler_channel")
+        .setDescription("Channel where ticket system will send ticket creator")
     ),
   /**
    * @param {ChatInputCommandInteraction} interaction

@@ -42,12 +42,13 @@ module.exports = {
     if (!commandName) return;
     if (!command) return;
 
+    if (command.bloxia && message.guild.id !== client.config.BLOXIAID) return;
     if (command.developer && !client.config.DEVID.includes(message.author.id))
       return message.reply({
-        content: ":x: This command is only available to developers.",
+        content:
+          "<:CV_Attention:1083911870186012724> This command is only available to developers.",
         ephemeral: true,
       });
-
     let user = client.userSettings.get(message.author.id);
     // If there is no user, create it in the Database as "newUser"
     if (!user) {
@@ -58,15 +59,20 @@ module.exports = {
         user = newUser;
       } else return;
     }
+    if (client.maintenanced && !command.maintenancebypass)
+      return message.reply(
+        "<:CV_Attention:1083911870186012724> Maintenance mode is on !"
+      );
     if (command.premium && user && !user.isPremium) {
       return message.reply({
-        content: `> \`${message.author.username}\` You are Not Premium User`,
+        content: `> <:CV_Attention:1083911870186012724> \`${message.author.username}\` You are Not Premium User`,
       });
     }
 
     if (command.owneronly && message.author.id !== client.config.OWNERID)
       return message.reply({
-        content: ":x: This command is only available to the owner.",
+        content:
+          "<:CV_Attention:1083911870186012724> This command is only available to the owner.",
         ephemeral: true,
       });
 

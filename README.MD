@@ -74,13 +74,48 @@ You don't necessarily have to run all the commands manually, you can use one of 
 
 Then, you will want to run `./commit.bat` in your console.
 
-##Configuration
+## Configuration
 
-###Create a .env File
+### Create a .env File
 
 Go to your `Settings` folder, and right click => Create a new file
 
-[New File](https://media.discordapp.net/attachments/1063751938371502100/1063752093413941268/image.png)
+<p align="center">
+  <a href="https://bit.ly/arzerox_bot" target="blank"><img src="https://media.discordapp.net/attachments/1063751938371502100/1063752093413941268/image.png" alt="Djs" /></a>
+</p>
 
 Name it `.env` . After that, your Settings folder should look like this :
-[Settings Folder](https://media.discordapp.net/attachments/1063751938371502100/1063752849835687956/image.png)
+
+<p align="center">
+  <a href="https://bit.ly/arzerox_bot" target="blank"><img src="https://media.discordapp.net/attachments/1063751938371502100/1063752849835687956/image.png" alt="Djs" /></a>
+</p>
+
+# Commands
+
+## Create a text command
+
+You need to create a command as `./Commands/${folder}/commandname.js`
+Use this template :
+
+```
+const User = require("../../Models/User");
+const { Client, Message, EmbedBuilder } = require("discord.js");
+
+module.exports = {
+  name: "commandname",
+  description: `command description`,
+  developer: false,
+  premium: false,
+  owneronly: false,
+  bloxia: false,
+  /**
+   *
+   * @param {Message} message
+   * @param {*} args
+   * @param {Client} client
+   */
+  async execute(message, args, commandName, client, Discord) {
+    //Code
+  },
+};
+```

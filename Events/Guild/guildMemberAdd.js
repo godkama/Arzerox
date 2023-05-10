@@ -12,6 +12,7 @@ module.exports = {
   /**
    *
    * @param {GuildMember} member
+   * @param {Client} client
    */
   async execute(member, client) {
     const guildConfig = client.guildConfig.get(member.guild.id);
