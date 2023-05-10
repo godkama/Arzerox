@@ -12,6 +12,36 @@ module.exports = {
    * @param {Client} client
    */
   async execute(message, args, commandName, client, Discord) {
+    function generateLayout(layoutOfRow, numRows, premiumLine) {
+      const maxGroups = 5;
+      const seatGroups = Math.min(layoutOfRow.length, maxGroups);
+
+      let layout = "";
+
+      for (let row = 0; row < numRows; row++) {
+        let line = "";
+
+        for (let group = 0; group < seatGroups; group++) {
+          line += layoutOfRow.substring(0, layoutOfRow[group]);
+          layoutOfRow = layoutOfRow.substring(group + 1);
+
+          // Add a space between groups of seats
+          if (group !== seatGroups - 1) {
+            line += " ";
+          }
+        }
+
+        // Check if the current row is the premium line
+        if (premiumLine && row === premiumLine - 1) {
+          line = line.replace(/🪑/g, "💺");
+        }
+
+        layout += line + "\n";
+      }
+
+      return layout;
+    }
+
     let filter = (m) => m.author.id === message.author.id;
     message.channel.send(``).then(() => {
       message.channel
