@@ -1,12 +1,18 @@
-Example usage
-const layoutOfRow = '3 4 2';
+# Seat Layout
+
+I created a function to make it easier to generate the layout !
+
+```javascript
+const layoutOfRow = "3 4 2";
 const numRows = 4;
 const premiumLine = 2;
 
 const layout = generateLayout(layoutOfRow, numRows, premiumLine);
 console.log(layout);
+```
 
-Example usage
+# Example usage
+
 const ticketInfo = {
 ticketId: "123456",
 username: "John Doe",
