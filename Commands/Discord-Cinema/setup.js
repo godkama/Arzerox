@@ -16,7 +16,7 @@ module.exports = {
    * @param {Client} client
    */
   async execute(message, args, commandName, client, Discord) {
-    registerFont("Commands/Discord-Cinema/Assets/Montserrat-Bold", {
+    registerFont("Commands/Discord-Cinema/Assets/Montserrat-Bold.ttf", {
       family: "Cartoon Font",
     });
 
