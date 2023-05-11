@@ -13,6 +13,7 @@ console.log(layout);
 
 # Ticket Generation
 
+I also created it easier to generate a ticket
 const ticketInfo = {
 ticketId: "123456",
 username: "John Doe",
