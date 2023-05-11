@@ -16,8 +16,7 @@ module.exports = {
    * @param {Client} client
    */
   async execute(message, args, commandName, client, Discord) {
-    // Register the font you want to use (replace 'path/to/font.ttf' with the actual font file path)
-    registerFont("path/to/font.ttf", { family: "Cartoon Font" });
+    registerFont("./Assets/Montserrat-Bold", { family: "Cartoon Font" });
 
     class CartoonyCinemaTicket {
       constructor(ticketInfo) {
