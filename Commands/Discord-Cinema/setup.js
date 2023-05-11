@@ -36,15 +36,14 @@ module.exports = {
         const canvas = createCanvas(this.width, this.height);
         const ctx = canvas.getContext("2d");
 
-        ctx.fillStyle = "yellow"; // Replace with desired background color
+        ctx.fillStyle = "#BFCA14"; // Background color
         ctx.fillRect(0, 0, this.width, this.height);
 
-        ctx.fillStyle = "black"; // Replace with desired text color
+        ctx.fillStyle = "#81880C"; // Text color
         ctx.font = `${this.fontSize}px ${this.fontFamily}`;
-        ctx.textBaseline = "top";
 
-        // Draw rectangle for the ticket
-        ctx.strokeStyle = "black"; // Replace with desired border color
+        // Draw black border
+        ctx.strokeStyle = "#111"; // Darker black border color
         ctx.lineWidth = 5;
         ctx.strokeRect(
           this.padding,
@@ -53,27 +52,53 @@ module.exports = {
           this.height - 2 * this.padding
         );
 
+        // Draw top ribbon
+        ctx.fillStyle = "#F8F8FF"; // White ribbon color
+        ctx.fillRect(
+          this.padding,
+          this.padding,
+          this.width - 2 * this.padding,
+          60
+        );
+
         // Draw circles on the left border
-        const circleSpacing = 15;
-        const circleStartY = this.padding;
-        const circleEndY = this.height - this.padding;
+        const circleSpacing = 20;
+        const circleStartY = this.padding + 70;
+        const circleEndY = this.height - this.padding - 20;
         let circleY = circleStartY;
         while (circleY < circleEndY) {
           ctx.beginPath();
-          ctx.arc(this.padding, circleY, this.circleRadius, 0, 2 * Math.PI);
+          ctx.arc(
+            this.padding + 15,
+            circleY,
+            this.circleRadius + 2,
+            0,
+            2 * Math.PI
+          );
           ctx.fill();
           circleY += circleSpacing;
         }
 
         // Draw square logo in the top-right corner
-        const logoX = this.width - this.padding - this.logoSize;
-        const logoY = this.padding;
-        ctx.fillStyle = "blue"; // Replace with desired logo color
+        const logoX = this.width - this.padding - this.logoSize - 30;
+        const logoY = this.padding + 30;
+        ctx.fillStyle = "#1E1E1E"; // Square logo color
         ctx.fillRect(logoX, logoY, this.logoSize, this.logoSize);
 
         // Render ticket information
-        const infoX = this.padding * 2 + this.circleRadius * 2;
-        const infoY = this.padding;
+        const infoX = this.padding + 100;
+        const infoY = this.padding + 20;
+
+        // Draw big event name at the top
+        ctx.font = `bold ${this.fontSize + 10}px ${this.fontFamily}`; // Larger and bold font
+        ctx.fillText(this.ticketInfo.eventName, infoX, infoY);
+
+        // Render the rest of the ticket information with word wrap
+        const wrappedText = wrap(this.getTicketInfoText(), {
+          width: this.width - infoX - this.padding,
+        });
+        ctx.font = `${this.fontSize}px ${this.fontFamily}`; // Reset font size
+        ctx.fillText(wrappedText, infoX, infoY + 60);
 
         const {
           ticketId,
@@ -99,10 +124,6 @@ module.exports = {
           `Ticket Price: ${ticketPrice}\n` +
           `Event Author: ${eventAuthor}\n` +
           `Bot Name: ${botName}`;
-
-        const wrappedText = wrap(text, {
-          width: this.width - infoX - this.padding,
-        });
 
         this.drawText(ctx, wrappedText, infoX, infoY);
 
