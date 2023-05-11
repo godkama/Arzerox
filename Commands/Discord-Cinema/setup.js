@@ -125,63 +125,79 @@ module.exports = {
       }
     }
 
-    function generateLayout(layoutOfRow, numRows, premiumLine) {
-      const maxGroups = 5;
-      const seatGroups = Math.min(layoutOfRow.length, maxGroups);
+    const ticketInfo = {
+      ticketId: "123456",
+      username: "John Doe",
+      eventName: "Movie Night",
+      eventId: "789012",
+      guildId: "345678",
+      guildName: "Awesome Server",
+      dateTime: "2023-05-15 19:00",
+      ticketPrice: "$10",
+      eventAuthor: "Jane Smith",
+      botName: "TicketBot",
+    };
 
-      let layout = "";
+    const ticket = new CartoonyCinemaTicket(ticketInfo);
+    ticket.generateTicket();
 
-      for (let row = 0; row < numRows; row++) {
-        let line = "";
+    // function generateLayout(layoutOfRow, numRows, premiumLine) {
+    //   const maxGroups = 5;
+    //   const seatGroups = Math.min(layoutOfRow.length, maxGroups);
 
-        for (let group = 0; group < seatGroups; group++) {
-          line += layoutOfRow.substring(0, layoutOfRow[group]);
-          layoutOfRow = layoutOfRow.substring(group + 1);
+    //   let layout = "";
 
-          // Add a space between groups of seats
-          if (group !== seatGroups - 1) {
-            line += " ";
-          }
-        }
+    //   for (let row = 0; row < numRows; row++) {
+    //     let line = "";
 
-        // Check if the current row is the premium line
-        if (premiumLine && row === premiumLine - 1) {
-          line = line.replace(/🪑/g, "💺");
-        }
+    //     for (let group = 0; group < seatGroups; group++) {
+    //       line += layoutOfRow.substring(0, layoutOfRow[group]);
+    //       layoutOfRow = layoutOfRow.substring(group + 1);
 
-        layout += line + "\n";
-      }
+    //       // Add a space between groups of seats
+    //       if (group !== seatGroups - 1) {
+    //         line += " ";
+    //       }
+    //     }
 
-      return layout;
-    }
+    //     // Check if the current row is the premium line
+    //     if (premiumLine && row === premiumLine - 1) {
+    //       line = line.replace(/🪑/g, "💺");
+    //     }
 
-    let filter = (m) => m.author.id === message.author.id;
-    message.channel
-      .send(
-        `Please enter
-    ....`
-      )
-      .then(() => {
-        message.channel
-          .awaitMessages(filter, {
-            max: 1,
-            time: 30000,
-            errors: ["time"],
-          })
-          .then((message) => {
-            message = message.first();
-          })
-          .catch((collected) => {
-            message.channel.send("Timeout");
-          });
-      });
-    eventSchema.save((error, event) => {
-      if (error) {
-        console.error(error);
-        message.reply("Error setting up the event.");
-      } else {
-        message.reply(`Event set up successfully with ID ${event_id}.`);
-      }
-    });
+    //     layout += line + "\n";
+    //   }
+
+    //   return layout;
+    // }
+
+    // let filter = (m) => m.author.id === message.author.id;
+    // message.channel
+    //   .send(
+    //     `Please enter
+    // ....`
+    //   )
+    //   .then(() => {
+    //     message.channel
+    //       .awaitMessages(filter, {
+    //         max: 1,
+    //         time: 30000,
+    //         errors: ["time"],
+    //       })
+    //       .then((message) => {
+    //         message = message.first();
+    //       })
+    //       .catch((collected) => {
+    //         message.channel.send("Timeout");
+    //       });
+    //   });
+    // eventSchema.save((error, event) => {
+    //   if (error) {
+    //     console.error(error);
+    //     message.reply("Error setting up the event.");
+    //   } else {
+    //     message.reply(`Event set up successfully with ID ${event_id}.`);
+    //   }
+    // });
   },
 };
