@@ -14,18 +14,21 @@ console.log(layout);
 # Ticket Generation
 
 I also created it easier to generate a ticket
+
+```javascript
 const ticketInfo = {
-ticketId: "123456",
-username: "John Doe",
-eventName: "Movie Night",
-eventId: "789012",
-guildId: "345678",
-guildName: "Awesome Server",
-dateTime: "2023-05-15 19:00",
-ticketPrice: "$10",
-eventAuthor: "Jane Smith",
-botName: "TicketBot",
+  ticketId: "123456",
+  username: "John Doe",
+  eventName: "Movie Night",
+  eventId: "789012",
+  guildId: "345678",
+  guildName: "Awesome Server",
+  dateTime: "2023-05-15 19:00",
+  ticketPrice: "$10",
+  eventAuthor: "Jane Smith",
+  botName: "TicketBot",
 };
 
-    const ticket = new CartoonyCinemaTicket(ticketInfo);
-    ticket.generateTicket();
+const ticket = new CartoonyCinemaTicket(ticketInfo);
+ticket.generateTicket();
+```
