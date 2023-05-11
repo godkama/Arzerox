@@ -1,4 +1,8 @@
-﻿## Table of Contents
+﻿# Arzerox
+
+© Kama, 2023
+
+## Table of Contents
 
 [Arzerox](#arzerox)
 [Setup with Git](#setup-with-git)
