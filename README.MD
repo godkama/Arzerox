@@ -9,12 +9,12 @@
 - [Setup a README file](#setup-a-readme-file)
 - [Setup a Push Origin](#setup-a-push-origin)
 
-Commit Your Code
+[Commit Your Code](#commit-your-code)
 
 - [Manual Commit](#manual-commit)
 - [Automatic Commit](#automatic-commit)
 
-Configuration
+[Configuration](#configuration)
 
 - [Create a .env File]()
 
