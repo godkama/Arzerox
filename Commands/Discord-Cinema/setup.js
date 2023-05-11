@@ -1,4 +1,6 @@
 const { eventSchema } = require("../../Schemas/CinemaEvents");
+const { createCanvas, registerFont } = require("canvas");
+const wrap = require("word-wrap");
 
 module.exports = {
   name: "cinema-setup",
@@ -14,9 +16,6 @@ module.exports = {
    * @param {Client} client
    */
   async execute(message, args, commandName, client, Discord) {
-    const { createCanvas, registerFont } = require("canvas");
-    const wrap = require("word-wrap");
-
     // Register the font you want to use (replace 'path/to/font.ttf' with the actual font file path)
     registerFont("path/to/font.ttf", { family: "Cartoon Font" });
 
