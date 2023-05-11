@@ -11,7 +11,7 @@ const layout = generateLayout(layoutOfRow, numRows, premiumLine);
 console.log(layout);
 ```
 
-# Example usage
+# Ticket Generation
 
 const ticketInfo = {
 ticketId: "123456",
