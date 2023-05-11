@@ -16,7 +16,9 @@ module.exports = {
    * @param {Client} client
    */
   async execute(message, args, commandName, client, Discord) {
-    registerFont("./Assets/Montserrat-Bold", { family: "Cartoon Font" });
+    registerFont("Commands/Discord-Cinema/Assets/Montserrat-Bold", {
+      family: "Cartoon Font",
+    });
 
     class CartoonyCinemaTicket {
       constructor(ticketInfo) {
@@ -104,7 +106,7 @@ module.exports = {
 
         this.drawText(ctx, wrappedText, infoX, infoY);
 
-        const outputFilePath = "./Assets/output.png"; // Replace with desired output file path
+        const outputFilePath = "Commands/Discord-Cinema/Assets/output.png"; // Replace with desired output file path
 
         const stream = canvas.createPNGStream();
         const out = require("fs").createWriteStream(outputFilePath);
