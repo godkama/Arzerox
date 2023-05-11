@@ -93,13 +93,6 @@ module.exports = {
         ctx.font = `bold ${this.fontSize + 10}px ${this.fontFamily}`; // Larger and bold font
         ctx.fillText(this.ticketInfo.eventName, infoX, infoY);
 
-        // Render the rest of the ticket information with word wrap
-        const wrappedText = wrap(this.getTicketInfoText(), {
-          width: this.width - infoX - this.padding,
-        });
-        ctx.font = `${this.fontSize}px ${this.fontFamily}`; // Reset font size
-        ctx.fillText(wrappedText, infoX, infoY + 60);
-
         const {
           ticketId,
           username,
@@ -124,6 +117,10 @@ module.exports = {
           `Ticket Price: ${ticketPrice}\n` +
           `Event Author: ${eventAuthor}\n` +
           `Bot Name: ${botName}`;
+
+        const wrappedText = wrap(text, {
+          width: this.width - infoX - this.padding,
+        });
 
         this.drawText(ctx, wrappedText, infoX, infoY);
 
