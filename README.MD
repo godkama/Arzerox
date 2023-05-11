@@ -4,7 +4,6 @@
 
 ## Table of Contents
 
-[Arzerox](#arzerox)
 [Setup with Git](#setup-with-git)
 
 - [Setup a README file](#setup-a-readme-file)
