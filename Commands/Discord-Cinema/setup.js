@@ -104,7 +104,7 @@ module.exports = {
 
         this.drawText(ctx, wrappedText, infoX, infoY);
 
-        const outputFilePath = "path/to/output.png"; // Replace with desired output file path
+        const outputFilePath = "./Assets/output.png"; // Replace with desired output file path
 
         const stream = canvas.createPNGStream();
         const out = require("fs").createWriteStream(outputFilePath);
