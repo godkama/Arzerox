@@ -4,7 +4,9 @@
 
 * [Table of Contents](README.md)
 * [Introduction](arzerox/introduction.md)
-* [Setup with Git](arzerox/setup-with-git.md)
+* [Setup with Git](arzerox/setup-with-git/README.md)
+  * [Setup a README file](arzerox/setup-with-git/setup-a-readme-file.md)
+  * [Setup a Push Origin](arzerox/setup-with-git/setup-a-push-origin.md)
 * [Commit Your Code](arzerox/commit-your-code/README.md)
   * [Manual Commit](arzerox/commit-your-code/manual-commit.md)
   * [Automatic Commit](arzerox/commit-your-code/automatic-commit.md)

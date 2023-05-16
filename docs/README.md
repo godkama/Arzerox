@@ -4,15 +4,15 @@
 
 ### Table of Contents
 
-Setup with Git
+[setup-with-git](arzerox/setup-with-git/ "mention")
 
-* Setup a README file
-* Setup a Push Origin
+* [#setup-a-readme-file](arzerox/setup-with-git/#setup-a-readme-file "mention")
+* [#setup-a-push-origin](arzerox/setup-with-git/#setup-a-push-origin "mention")
 
-Commit Your Code
+[commit-your-code](arzerox/commit-your-code/ "mention")
 
-* Manual Commit
-* Automatic Commit
+* [manual-commit.md](arzerox/commit-your-code/manual-commit.md "mention")
+* [automatic-commit.md](arzerox/commit-your-code/automatic-commit.md "mention")
 
 Configuration
 
