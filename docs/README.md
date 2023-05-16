@@ -4,10 +4,10 @@
 
 ### Table of Contents
 
-[setup-with-git](arzerox/setup-with-git/ "mention")
+[setup-with-git.md](arzerox/setup-with-git.md "mention")
 
-* [#setup-a-readme-file](arzerox/setup-with-git/#setup-a-readme-file "mention")
-* [#setup-a-push-origin](arzerox/setup-with-git/#setup-a-push-origin "mention")
+* [#setup-a-readme-file](arzerox/setup-with-git.md#setup-a-readme-file "mention")
+* [#setup-a-push-origin](arzerox/setup-with-git.md#setup-a-push-origin "mention")
 
 [commit-your-code](arzerox/commit-your-code/ "mention")
 

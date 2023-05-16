@@ -1,78 +1,57 @@
 # Introduction
 
-### ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge\&logo=mongodb\&logoColor=white) ![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge\&logo=paypal\&logoColor=white) ![Ko-Fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge\&logo=ko-fi\&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge\&logo=node.js\&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge\&logo=javascript\&logoColor=%23F7DF1E) ![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge\&logo=discord\&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge\&logo=mongodb\&logoColor=white) ![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge\&logo=paypal\&logoColor=white) ![Ko-Fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge\&logo=ko-fi\&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge\&logo=node.js\&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge\&logo=javascript\&logoColor=%23F7DF1E) ![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge\&logo=discord\&logoColor=white)
 
-## F.A.Q
+{% hint style="info" %}
+This page is still under writing
+{% endhint %}
 
+### Dependencies
 
+[ArzeroxJS](https://www.npmjs.com/package/arzeroxjs)
 
+[discord.js](https://www.npmjs.com/package/discord.js)
 
+[mongoose](https://www.npmjs.com/package/mongoose)&#x20;
 
-#### Commit Your Code
+[discord-giveaways](https://www.npmjs.com/package/discord-giveaways)&#x20;
 
-Once you've setup your push origin, you will want to push everytime you change something in your code. Using Arzerox's code, you will have two options to push :
+[discord-dashboard](https://www.npmjs.com/package/discord-dashboard)&#x20;
 
-**Manual Commit**
+[moment](https://www.npmjs.com/package/moment)&#x20;
 
-To commit your manually, you can open one of these two :
+[voucher-code-generator](https://www.npmjs.com/package/voucher-code-generator)
 
-* Git Bash
-* Command Prompt
+### Partnerships
 
-Once you've opened one of them, run these three commands :
+**Atom Services** - May 2021
 
-```
-git add *
-git commit -m "Commit Name"
-git push origin main
-```
+**Bloxia** - August 2022&#x20;
 
-**Automatic Commit**
+**L2G** - January 2020
 
-You don't necessarily have to run all the commands manually, you can use one of Arzerox's automation files. To commit automatically, you will want to open one of the following :
+### Thankings
 
-* Git Bash
-* Command Prompt
+**.Cheater140#0666** - Early Support, ZeroTwo Bot Development&#x20;
 
-Then, you will want to run `./commit.bat` in your console.
+**Warg#3453** - Early Support, Administrator
 
-#### Configuration
+**Bloxia** - Testing, Hosting, Feature Suggestions, Partnership&#x20;
 
-**Create a .env File**
+**MrJuju0319#5801** - Sys-Admin, Hosting&#x20;
 
-Go to your `Settings` folder, and right click => Create a new file
+**AYA#5228** - Testing, Feature Suggestions&#x20;
 
-[![Djs](https://media.discordapp.net/attachments/1063751938371502100/1063752093413941268/image.png)](https://bit.ly/arzerox\_bot)
+**SachOscarGaming\_YTB#8703** - Testing&#x20;
 
-Name it `.env` . After that, your Settings folder should look like this :
+**Atom Services** - Early Support, Partnership&#x20;
 
-[![Djs](https://media.discordapp.net/attachments/1063751938371502100/1063752849835687956/image.png)](https://bit.ly/arzerox\_bot)
+**FarsUp#6778** - Early Support
 
-### Commands
+### Copyright Claims
 
-#### Create a text command
+© Arzerox, 2023&#x20;
 
-You need to create a command as `./Commands/${folder}/commandname.js` Use this template :
+© Kama, 2023&#x20;
 
-```
-const User = require("../../Models/User");
-const { Client, Message, EmbedBuilder } = require("discord.js");
-
-module.exports = {
-  name: "commandname",
-  description: `command description`,
-  developer: false,
-  premium: false,
-  owneronly: false,
-  bloxia: false,
-  /**
-   *
-   * @param {Message} message
-   * @param {*} args
-   * @param {Client} client
-   */
-  async execute(message, args, commandName, client, Discord) {
-    //Code
-  },
-};
-```
+© Bloxia, 2023
