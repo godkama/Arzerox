@@ -1,3 +1,4 @@
+const { joinVoiceChannel } = require("@discordjs/voice");
 const User = require("../../Models/User");
 const {
   Client,
@@ -5,7 +6,6 @@ const {
   EmbedBuilder,
   AttachmentBuilder,
 } = require("discord.js");
-{joinVoiceChannel} = require("@discordjs/voice")
 
 module.exports = {
   name: "setvideo",

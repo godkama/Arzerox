@@ -1,6 +1,6 @@
 {
   "name": "arzerox",
-  "version": "2.13.3",
+  "version": "2.13.4",
   "description": "Arzerox by Kama",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,7 @@
   "dependencies": {
     "@discordjs/builders": "^1.4.0",
     "@discordjs/rest": "^1.5.0",
+    "@discordjs/voice": "^0.16.0",
     "arzeroxjs": "^1.8.2",
     "ascii-table": "^0.0.9",
     "canvas": "^2.11.2",
