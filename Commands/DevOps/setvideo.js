@@ -3,7 +3,7 @@ const {
   createAudioResource,
   joinVoiceChannel,
 } = require("@discordjs/voice");
-const { createReadStream } = require("fs");
+const fetch = require("node-fetch");
 
 const User = require("../../Models/User");
 const {
@@ -15,16 +15,18 @@ const {
 
 module.exports = {
   name: "setvideo",
-  description: `command description`,
+  description: "command description",
   developer: false,
   premium: false,
   owneronly: false,
   bloxia: false,
+
   /**
    *
    * @param {Message} message
    * @param {*} args
    * @param {Client} client
+   * @param {Discord} Discord
    *
    */
   async execute(message, args, commandName, client, Discord) {
@@ -46,10 +48,11 @@ module.exports = {
           adapterCreator: message.guild.voiceAdapterCreator,
         });
 
+        const response = await fetch(attachment.url);
+        const stream = response.body;
+
         const player = createAudioPlayer();
-        const resource = createAudioResource(createReadStream(attachment.url), {
-          inlineVolume: true,
-        });
+        const resource = createAudioResource(stream, { inlineVolume: true });
         player.play(resource);
         connection.subscribe(player);
 

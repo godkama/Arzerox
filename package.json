@@ -1,6 +1,6 @@
 {
   "name": "arzerox",
-  "version": "2.13.15",
+  "version": "2.13.16",
   "description": "Arzerox by Kama",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/LordKamaYT/Arzerox#readme",
   "dependencies": {
     "@discordjs/builders": "^1.4.0",
+    "@discordjs/opus": "^0.9.0",
     "@discordjs/rest": "^1.5.0",
     "@discordjs/voice": "^0.16.0",
     "arzeroxjs": "^1.8.2",
@@ -42,6 +43,7 @@
     "discordjs-reaction-role": "^3.1.0",
     "dotenv": "^16.0.3",
     "env": "^0.0.2",
+    "ffmpeg-static": "^5.1.0",
     "fs": "^0.0.1-security",
     "glob": "^8.0.3",
     "minecraft-server-util": "^5.3.2",
