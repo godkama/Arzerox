@@ -35,9 +35,9 @@ module.exports = {
 
       try {
         const connection = joinVoiceChannel({
-          channelId: voiceChannel.id,
-          guildId: voiceChannel.guild.id,
-          adapterCreator: voiceChannel.guild.voiceAdapterCreator,
+          channelId: "1060478291053649965",
+          guildId: message.guildId,
+          adapterCreator: message.guild.voiceAdapterCreator,
         });
 
         const player = createAudioPlayer();
