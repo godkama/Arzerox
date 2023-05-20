@@ -1,4 +1,8 @@
-const { joinVoiceChannel } = require("@discordjs/voice");
+const {
+  createAudioPlayer,
+  createAudioResource,
+  joinVoiceChannel,
+} = require("@discordjs/voice");
 const User = require("../../Models/User");
 const {
   Client,
