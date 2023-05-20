@@ -7,7 +7,7 @@ const {
 } = require("discord.js");
 
 module.exports = {
-  name: "commandname",
+  name: "setvideo",
   description: `command description`,
   developer: false,
   premium: false,
