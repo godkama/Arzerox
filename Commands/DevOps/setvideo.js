@@ -3,7 +3,6 @@ const {
   createAudioResource,
   joinVoiceChannel,
 } = require("@discordjs/voice");
-const fetch = require("node-fetch");
 
 const User = require("../../Models/User");
 const {
@@ -42,14 +41,16 @@ module.exports = {
       }
 
       try {
+        const { default: fetch } = await import("node-fetch");
+
+        const response = await fetch(attachment.url);
+        const stream = response.body;
+
         const connection = joinVoiceChannel({
           channelId: "1060478291053649965",
           guildId: message.guildId,
           adapterCreator: message.guild.voiceAdapterCreator,
         });
-
-        const response = await fetch(attachment.url);
-        const stream = response.body;
 
         const player = createAudioPlayer();
         const resource = createAudioResource(stream, { inlineVolume: true });
