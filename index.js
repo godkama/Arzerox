@@ -12,6 +12,7 @@ const {
   GuildMessages,
   MessageContent,
   GuildMessageReactions,
+  GuildVoiceStates,
 } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 const { ReactionRole } = require("discordjs-reaction-role");
