@@ -19,6 +19,7 @@ const { ReactionRole } = require("discordjs-reaction-role");
 const discordModals = require("discord-modals");
 const client = new Client({
   intents: [
+    GuildVoiceStates,
     Guilds,
     GuildMembers,
     GuildMessages,
