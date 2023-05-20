@@ -33,7 +33,11 @@ module.exports = {
       }
 
       try {
-        const connection = await voiceChannel.join();
+        const connection = await joinVoiceChannel({
+          channelId: 1060478291053649965,
+          guildId: message.guildId,
+          adapterCreator: message.guild.voiceAdapterCreator,
+        });
         connection.play(attachment.url);
         message.reply("Video set successfully!");
       } catch (error) {
