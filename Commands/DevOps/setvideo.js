@@ -3,6 +3,8 @@ const {
   createAudioResource,
   joinVoiceChannel,
 } = require("@discordjs/voice");
+const { createReadStream } = require("fs");
+
 const User = require("../../Models/User");
 const {
   Client,
