@@ -101,7 +101,12 @@ Use this template :
 
 ```
 const User = require("../../Models/User");
-const { Client, Message, EmbedBuilder } = require("discord.js");
+const {
+  Client,
+  Message,
+  EmbedBuilder,
+  AttachmentBuilder,
+} = require("discord.js");
 
 module.exports = {
   name: "commandname",
