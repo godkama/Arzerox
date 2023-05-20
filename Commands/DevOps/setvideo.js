@@ -1,11 +1,7 @@
 const {
   createAudioPlayer,
   createAudioResource,
-  createVideoPlayer,
-  createVideoResource,
   joinVoiceChannel,
-  AudioPlayerStatus,
-  VideoPlayerStatus,
 } = require("@discordjs/voice");
 
 const User = require("../../Models/User");
@@ -56,26 +52,10 @@ module.exports = {
           adapterCreator: message.guild.voiceAdapterCreator,
         });
 
-        const audioPlayer = createAudioPlayer();
-        const audioResource = createAudioResource(stream, {
-          inlineVolume: true,
-        });
-        audioPlayer.play(audioResource);
-
-        const videoPlayer = createVideoPlayer();
-        const videoResource = createVideoResource(stream);
-        videoPlayer.play(videoResource);
-
-        connection.subscribe(audioPlayer);
-        connection.subscribe(videoPlayer);
-
-        audioPlayer.on(AudioPlayerStatus.Idle, () => {
-          connection.destroy();
-        });
-
-        videoPlayer.on(VideoPlayerStatus.Idle, () => {
-          connection.destroy();
-        });
+        const player = createAudioPlayer();
+        const resource = createAudioResource(stream, { inlineVolume: true });
+        player.play(resource);
+        connection.subscribe(player);
 
         message.reply("Video set successfully!");
       } catch (error) {
