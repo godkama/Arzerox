@@ -19,6 +19,7 @@ module.exports = {
    * @param {Message} message
    * @param {*} args
    * @param {Client} client
+   *
    */
   async execute(message, args, commandName, client, Discord) {
     const attachment = message.attachments.first();
@@ -33,12 +34,19 @@ module.exports = {
       }
 
       try {
-        const connection = await joinVoiceChannel({
-          channelId: 1060478291053649965,
-          guildId: message.guildId,
-          adapterCreator: message.guild.voiceAdapterCreator,
+        const connection = joinVoiceChannel({
+          channelId: voiceChannel.id,
+          guildId: voiceChannel.guild.id,
+          adapterCreator: voiceChannel.guild.voiceAdapterCreator,
         });
-        connection.play(attachment.url);
+
+        const player = createAudioPlayer();
+        const resource = createAudioResource(createReadStream(attachment.url), {
+          inlineVolume: true,
+        });
+        player.play(resource);
+        connection.subscribe(player);
+
         message.reply("Video set successfully!");
       } catch (error) {
         console.error(error);
