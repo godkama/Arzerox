@@ -51,7 +51,7 @@ module.exports = {
         const stream = response.body;
 
         const connection = joinVoiceChannel({
-          channelId: voiceChannel.id,
+          channelId: "1060478291053649965",
           guildId: message.guildId,
           adapterCreator: message.guild.voiceAdapterCreator,
         });
